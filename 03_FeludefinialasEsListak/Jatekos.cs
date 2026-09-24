@@ -43,7 +43,14 @@ namespace _03_FeludefinialasEsListak
         }
         public override string ToString()
         {
-            return $"Játékos: {Nev}, Szint: {Szint}, Pontszám: {Pontszam}";
+            string Rang = Pontszam switch
+            {
+                < 1000 => "Kezdő",
+                >= 1000 and < 5000 => "Haladó",
+                >= 5000 => "Profi",
+            };
+            return $"Játékos: {Nev}, Szint: {Szint}, Pontszám: {Pontszam}, Rang: {Rang}";
+
         }
     }
 }
